@@ -10,6 +10,8 @@
 import Foundation
 import JavaScriptCore
 
+import SwiftUI
+
 #if os(OSX)
 import AppKit
 #endif
@@ -18,11 +20,11 @@ import AppKit
 /**
     Wrapper class for generating a highlighted NSAttributedString from a code string.
  */
-open class Highlighter {
+open class Highlighter: ObservableObject {
 
     // MARK: - Public Properties
     
-    open var theme: Theme! {
+    @Published open var theme: Theme! {
         didSet {
             themeChanged?(theme)
         }
